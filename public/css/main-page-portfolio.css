@@ -1,0 +1,222 @@
+.main-page-portfolio {
+    overflow: hidden;
+    background-color: rgb(243, 243, 243);
+}
+
+.main-page-portfolio hr {
+    background-color: #D2D2D2;
+}
+
+.main-page-portfolio .container {
+    border-bottom: 1px solid #D2D2D2;
+}
+
+
+.portfolio-card .ch-item {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.portfolio-card-wrapper {
+    margin-bottom: 25px;
+    padding: 0 7px;
+}
+
+.portfolio-card-wrapper.hidden {
+    visibility: hidden;
+    width: 0px !important;
+    height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.show-more__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    box-shadow: none;
+    width: 384px;
+    height: 68px;
+    background: #103C5A;
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    transition: all 100ms ease;
+    margin: 0 auto 30px;
+    max-width: 100%;
+    position: relative;
+
+}
+
+.show-more__button img {
+    position: absolute;
+    left: 15px;
+}
+
+@media (max-width: 425px) {
+    .show-more__button img {
+        display: none;
+    }
+}
+
+.show-more__button:active {
+    background: #103C5A;
+    transition: all 100ms ease;
+    transform: scale(0.95);
+    box-shadow: 18px 18px 36px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-card {
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-card__status {
+    position: absolute;
+    top: 12px;
+    right: 0px;
+    z-index: 2;
+}
+
+.portfolio-card__status span {
+    padding: 8px 10px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+    border-radius: 5px 0px 0px 5px;
+    overflow: hidden;
+}
+
+
+.portfolio-card__image {
+    height: 340px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+.portfolio-card__street {
+    display: block;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.portfolio-card__region {
+    font-family: Gilroy, sans-serif;
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.portfolio-card__price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 12px;
+    flex-wrap: wrap;
+}
+
+.portfolio-card__image > div {
+    width: 100%;
+    margin-top: auto;
+    padding: 15px;
+    background: linear-gradient(180deg, rgba(17, 47, 73, 0) 0%, #112F49 80%);
+}
+
+.portfolio-card__price span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #5E5E5E;
+    margin-right: 10px;
+}
+
+.portfolio-card__price b {
+    font-size: 22px;
+    line-height: 27px;
+    color: #393939;
+    margin-bottom: 4px;
+}
+
+.portfolio-card {
+}
+
+.portfolio-card-footer {
+    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.portfolio-card a {
+    display: block;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1600px) {
+    .container--header-filter {
+        max-width: 1455px;
+        padding: 0;
+    }
+    .container--main-page-portfolio {
+        max-width: 1445px;
+        padding: 0;
+    }
+    .header-filter-list input.field {
+        width: 355px;
+    }
+    .header-filter-list select {
+        width: 355px;
+    }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1660px) {
+    .portfolio-card__image {
+        height: 260px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
+    .portfolio-card__image {
+        height: 200px;
+    }
+    .portfolio-card__street {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .portfolio-card__price b {
+        line-height: 25px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .portfolio-card__image {
+        height: 260px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio-card__image {
+        height: 350px;
+    }
+}

@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class PagePolicy
+{
+    use HandlesAuthorization;
+
+    public function viewAny(): bool
+    {
+        return true;
+    }
+
+    public function view(): bool
+    {
+        return true;
+    }
+
+    public function create(): bool
+    {
+        return false;
+    }
+
+    public function update(): bool
+    {
+        return true;
+    }
+
+    public function delete(): bool
+    {
+        return false;
+    }
+
+    public function restore(): bool
+    {
+        return false;
+    }
+
+    public function forceDelete(): bool
+    {
+        return false;
+    }
+}
