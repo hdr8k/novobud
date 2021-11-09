@@ -15,7 +15,6 @@
                 layoutMode: 'fitRows',
                 filter: function () {
                     var $this = $(this)
-                    console.log(selectFilter)
                     var searchResult = qsRegex ? $this.text().match(qsRegex) : true
                     var buttonResult = selectFilter ? $this.is(selectFilter) : true
 
@@ -129,16 +128,18 @@
         </div>
     </div>
 
-    <div class="home-page-footer-info">
-        <div class="container container--home-page-footer-info">
-            <div class="home-page-footer-info__content">
-                {!! $page->content !!}
+    @if(isset($page->content))
+        <div class="home-page-footer-info">
+            <div class="container container--home-page-footer-info">
+                <div class="home-page-footer-info__content">
+                    {!! $page->content !!}
+                </div>
+                <button class="home-page-footer-info__button">
+                    {{__('houses/building.read_all')}}
+                </button>
             </div>
-            <button class="home-page-footer-info__button">
-                {{__('houses/building.read_all')}}
-            </button>
         </div>
-    </div>
+    @endif
     <script>
         const homePageFooterButton = document.querySelector('.home-page-footer-info__button')
         const homePageFooterInfoContent = document.querySelector('.home-page-footer-info__content')

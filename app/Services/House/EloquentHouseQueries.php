@@ -17,14 +17,14 @@ class EloquentHouseQueries implements HouseQueries
 {
 
     /**
-     * @param  int  $id
+     * @param int $id
      *
      * @return House
      */
     public function getById(int $id): House
     {
         $house = House::whereId($id)->first();
-        if ( ! $house) {
+        if (!$house) {
             abort(404);
         }
 
@@ -80,10 +80,25 @@ class EloquentHouseQueries implements HouseQueries
                 'housings.layouts.layoutCoordinates'
             )
             ->first();
-        if ( ! $house) {
+        if (!$house) {
             abort(404);
         }
 
         return $house;
+    }
+
+    public function getByCategorySlug(string $slug)
+    {
+        $houses = House::whereHas('category', function ($q) use ($slug) {
+            $q->where('slug', $slug);
+        })->with(
+            'category',
+            'photoSliders',
+            'housings',
+            'housings.layouts',
+            'housings.layouts.layoutCoordinates'
+        )->get();
+
+        return $houses;
     }
 }

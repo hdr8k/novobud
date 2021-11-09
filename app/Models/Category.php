@@ -14,7 +14,11 @@ class Category extends Model
     use HasFactory;
     use HasTranslations;
 
-    public $translatable = ['name'];
+    public $translatable = [
+        'name',
+        'meta_description',
+        'meta_keywords',
+    ];
 
     public function houses(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

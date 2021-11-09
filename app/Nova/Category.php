@@ -7,6 +7,7 @@ use Drobee\NovaSluggable\SluggableText;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Kongulov\NovaTabTranslatable\NovaTabTranslatable;
 
@@ -51,12 +52,16 @@ class Category extends Resource
      */
     public function fields(Request $request)
     {
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
             NovaTabTranslatable::make([
                 SluggableText::make('Название', 'name')
                     ->slug('Url')
                     ->required(),
+
+                Textarea::make('Meta description', 'meta_description'),
+                Text::make('Meta keywords', 'meta_keywords'),
             ])->setTitle('Перевод'),
 
             Slug::make('Url', 'slug')

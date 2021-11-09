@@ -18,22 +18,25 @@ $locals = ['', ...config('local.languages')];
 foreach ($locals as $local) {
     Route::group([
         'prefix' => $local,
-    ], function () {
-        Route::get('/', [\App\Http\Controllers\HouseController::class, 'index'])->name('index');
+    ], function () use ($local) {
+        Route::get('/', [\App\Http\Controllers\HouseController::class, 'index'])->name($local . '.index');
 
         Route::get('/o-proekte.html',
             [\App\Http\Controllers\IndexController::class, 'aboutTheProject'])
-            ->name('aboutTheProject');
+            ->name($local . '.aboutTheProject');
 
         Route::get('/novostoroyki-poltava-kontakty.html',
             [\App\Http\Controllers\IndexController::class, 'contacts'])
-            ->name('contacts');
+            ->name($local . '.contacts');
 
         Route::get('novostrojki-na-karte.html', [\App\Http\Controllers\MapController::class, 'index']);
 
         Route::get('print/room/{id}', [\App\Http\Controllers\HouseController::class, 'printRoom']);
 
-        if ( ! Request::is('admin*') && (! Request::is('ua'))) {
+        Route::get('category/{slug}', [\App\Http\Controllers\HouseController::class, 'getCategory'])
+            ->name($local . '.category');
+
+        if (!Request::is('admin*') && (!Request::is('ua'))) {
             Route::get('/{slug}', [\App\Http\Controllers\HouseController::class, 'getBySlug']);
         }
     });

@@ -12,6 +12,8 @@ interface HouseQueries
 
     public function getBySlug(string $slug): House;
 
+    public function getByCategorySlug(string $slug);
+
     public function getInMain();
 
     public function getMapBy();

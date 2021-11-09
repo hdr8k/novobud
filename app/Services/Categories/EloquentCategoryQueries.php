@@ -31,4 +31,9 @@ final class EloquentCategoryQueries implements Contracts\CategoryQueries
     {
         return Category::whereId($id)->first();
     }
+
+    public function getBySlugWithHouses(string $slug): Category
+    {
+        return Category::whereSlug($slug)->with('houses')->first();
+    }
 }
