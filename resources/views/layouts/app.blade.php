@@ -166,9 +166,9 @@
                     <div class="menu-top__logo">
                         <a href="{{localUrl('')}}">
                             <img
-                                @if(checkCurrentUrl('/') !== 'current')
-                                style="filter: grayscale(1);"
-                                @endif
+{{--                                @if(checkCurrentUrl('/') !== 'current')--}}
+{{--                                style="filter: grayscale(1);"--}}
+{{--                                @endif--}}
                                 src="{{asset('img/menu/menu-top-logo.svg')}}">
                         </a>
                     </div>
