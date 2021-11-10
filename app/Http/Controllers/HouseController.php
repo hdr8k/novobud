@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\HouseViewEvent;
 use App\Services\Categories\Contracts\CategoryQueries;
 use App\Services\House\Contracts\HouseQueries;
+use App\Services\LayoutCoordinate\EloquentLayoutCoordinateQueries;
 use App\Services\Pages\SeoToolPageHandle;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
