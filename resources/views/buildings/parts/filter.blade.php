@@ -241,7 +241,7 @@
                     <select name="fnrayon" onchange="location = this.value;" class="fnrayon">
                         <option value="">{{__('houses/filter.addres')}}</option>
                         @foreach($categories as $category)
-                            <option value="{{asset('category') . '/' . $category->slug}}"
+                            <option value="{{localUrl('category/' . $category->slug)}}"
                                     @if(request()->route()->slug == $category->slug) selected @endif
                             >{{$category->name}}</option>
                         @endforeach
