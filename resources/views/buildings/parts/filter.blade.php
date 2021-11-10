@@ -239,7 +239,7 @@
                 {{--                </div>--}}
                 <div class="header-filter-list__item">
                     <select name="fnrayon" onchange="location = this.value;" class="fnrayon">
-                        <option value="">{{__('houses/filter.addres')}}</option>
+                        <option value="{{localUrl('')}}">{{__('houses/filter.addres')}}</option>
                         @foreach($categories as $category)
                             <option value="{{localUrl('category/' . $category->slug)}}"
                                     @if(request()->route()->slug == $category->slug) selected @endif
