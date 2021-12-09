@@ -61,6 +61,14 @@
 <div class="ui-modal" id="feedback-flat">
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
+        
+        <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
+          (function(w,d,u){
+            var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+            var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+          })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
+        </script>
+        
             <h4 class="user-form__title">
                 {{__('houses/house.title_form')}}
             </h4>
