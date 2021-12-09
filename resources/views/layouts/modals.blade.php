@@ -22,7 +22,7 @@
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
         
-            @if(request()->is('*/o-proekte.html'))
+            @if(request()->is('/o-proekte.html'))
             <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
               (function(w,d,u){
                 var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
