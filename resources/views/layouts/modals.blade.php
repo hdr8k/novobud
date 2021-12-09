@@ -22,12 +22,21 @@
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
         
+            @if(request()->is('*/o-proekte.html')
             <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
               (function(w,d,u){
                 var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
                 var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
               })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_46.js');
             </script>
+            @else
+            <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
+              (function(w,d,u){
+                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+              })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
+            </script>
+            @endif
             
             <h4 class="user-form__title">
                 {{__('feedback.title')}}
