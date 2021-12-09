@@ -1,4 +1,12 @@
 <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
+
+    <script data-b24-form="inline/44/x0c32o" data-skip-moving="true">
+      (function(w,d,u){
+        var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+      })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_44.js');
+    </script>
+    
     <h4 class="user-form__title">
         {{__('contacts.questions')}}
     </h4>
