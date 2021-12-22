@@ -10,6 +10,7 @@
                     <input type="submit" value="Перезвонить">
                     <input type="hidden" name="subject" value="Не нашли то, что искали?">
                     <input type="hidden" name="from" value="novobud.pl.ua">
+                    @include('partials.modal-script')
                 </form>
             </div>
         </div>
@@ -21,14 +22,17 @@
 <div class="ui-modal" id="feedback">
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
-        
-           <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
-              (function(w,d,u){
-                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-              })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_46.js');
+
+            <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
+                (function (w, d, u) {
+                    var s = d.createElement('script');
+                    s.async = true;
+                    s.src = u + '?' + (Date.now() / 180000 | 0);
+                    var h = d.getElementsByTagName('script')[0];
+                    h.parentNode.insertBefore(s, h);
+                })(window, document, 'https://cdn.bitrix24.ua/b7708799/crm/form/loader_46.js');
             </script>
-            
+
             <h4 class="user-form__title">
                 {{__('feedback.title')}}
             </h4>
@@ -50,6 +54,7 @@
             <input type="hidden" name="url" value="{!! url()->current() !!}">
 
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
+            @include('partials.modal-script')
         </form>
 
         <button class="ui-modal__close" data-close-modal="feedback">
@@ -61,14 +66,17 @@
 <div class="ui-modal" id="feedback-flat">
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
-        
-        <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
-          (function(w,d,u){
-            var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-            var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-          })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
-        </script>
-        
+
+            <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
+                (function (w, d, u) {
+                    var s = d.createElement('script');
+                    s.async = true;
+                    s.src = u + '?' + (Date.now() / 180000 | 0);
+                    var h = d.getElementsByTagName('script')[0];
+                    h.parentNode.insertBefore(s, h);
+                })(window, document, 'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
+            </script>
+
             <h4 class="user-form__title">
                 {{__('houses/house.title_form')}}
             </h4>
@@ -91,6 +99,7 @@
             </div>
 
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
+            @include('partials.modal-script')
         </form>
 
         <button class="ui-modal__close" data-close-modal="feedback-flat">
@@ -112,6 +121,7 @@
             </div>
 
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>
+            @include('partials.modal-script')
         </form>
 
         <button class="ui-modal__close" data-close-modal="feedback-phone">
