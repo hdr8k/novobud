@@ -291,7 +291,7 @@
 
 
     <div class="container">
-//            <button class="uibtn uibtn-primary one-product__selection-apartment-btn" data-open-modal="feedback-flat">
+{{--            <button class="uibtn uibtn-primary one-product__selection-apartment-btn" data-open-modal="feedback-flat"> --}}
         <button class="uibtn uibtn-primary one-product__selection-apartment-btn">
         <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
           (function(w,d,u){
