@@ -294,11 +294,11 @@
 {{--            <button class="uibtn uibtn-primary one-product__selection-apartment-btn" data-open-modal="feedback-flat"> --}}
         <button class="uibtn uibtn-primary one-product__selection-apartment-btn">
         <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
-          (function(w,d,u){
-            var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-            var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-          })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
-        </script>
+  (function(w,d,u){
+    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+  })(window,document,'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
+</script>
             {{__('houses/building.button')}}
         </button>
     </div>
