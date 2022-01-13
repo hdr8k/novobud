@@ -83,6 +83,9 @@
 
 .header-advantages-list__img {
     margin-bottom: 25px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-advantages-list__text {

@@ -83,6 +83,9 @@
 
 .header-advantages-list__img {
     margin-bottom: 25px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-advantages-list__text {
@@ -246,7 +249,7 @@
 
 @media screen and (max-width: 550px) {
     .header-advantages-list__text {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 20px;
     }
 
