@@ -169,7 +169,7 @@
 {{--                                @if(checkCurrentUrl('/') !== 'current')--}}
 {{--                                style="filter: grayscale(1);"--}}
 {{--                                @endif--}}
-                                src="{{asset('img/menu/menu-top-logo.svg')}}">
+                                src="{{asset('img/menu/menu-top-logo.png')}}">
                         </a>
                     </div>
                     <ul class="menu-top-list">
