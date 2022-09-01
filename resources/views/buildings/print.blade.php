@@ -52,7 +52,7 @@
         </td>
 
         <td style='width:50%;text-align:right;vertical-align:top;'>
-            <img src='{{asset('img/menu/menu-top-logo.svg')}}' class='logon'/>
+            <img src='{{asset('img/menu/menu-top-logo.png')}}' class='logon'/>
 
         </td>
 
