@@ -16,6 +16,16 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-T6S5S3D');</script>
     <!-- End Google Tag Manager -->
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MJTJMX7Z9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8MJTJMX7Z9');
+    </script>
 
 {{--    <title>О проекте - компания Новобудови Полтави / Новобудови Полтави</title>--}}
 <!-- CSRF Token -->
