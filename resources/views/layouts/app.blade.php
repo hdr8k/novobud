@@ -16,7 +16,7 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-T6S5S3D');</script>
     <!-- End Google Tag Manager -->
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MJTJMX7Z9"></script>
     <script>
@@ -432,6 +432,8 @@
 
     })
 </script>
+
+{!!  GoogleReCaptchaV3::init() !!}
 
 <div class="yButton bottom right" id="social-fixed-button" href="#" style="z-index: 10000;">
 

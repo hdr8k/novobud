@@ -22,7 +22,6 @@
 <div class="ui-modal" id="feedback">
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
-
             <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
                 (function (w, d, u) {
                     var s = d.createElement('script');
@@ -97,7 +96,7 @@
             <div class="user-form__field">
                 <textarea name="text" class="user-form__textarea" placeholder="{{__('feedback.messages')}}"></textarea>
             </div>
-
+            {!!  GoogleReCaptchaV3::renderField('user_form_id','user_form_action') !!}
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
             @include('partials.modal-script')
         </form>
@@ -119,7 +118,7 @@
                 <input class="user-form__input" type="tel" name="phone" placeholder="{{__('recall.phone')}}"
                        required="">
             </div>
-
+            {!!  GoogleReCaptchaV3::renderField('user_form_id','user_form_action') !!}
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>
             @include('partials.modal-script')
         </form>
