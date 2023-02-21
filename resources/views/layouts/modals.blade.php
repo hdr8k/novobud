@@ -51,7 +51,6 @@
             </div>
 
             <input type="hidden" name="url" value="{!! url()->current() !!}">
-
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
             @include('partials.modal-script')
         </form>
@@ -96,7 +95,6 @@
             <div class="user-form__field">
                 <textarea name="text" class="user-form__textarea" placeholder="{{__('feedback.messages')}}"></textarea>
             </div>
-            {!!  GoogleReCaptchaV3::renderField('user_form_id','user_form_action') !!}
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
             @include('partials.modal-script')
         </form>
@@ -118,7 +116,6 @@
                 <input class="user-form__input" type="tel" name="phone" placeholder="{{__('recall.phone')}}"
                        required="">
             </div>
-            {!!  GoogleReCaptchaV3::renderField('user_form_id','user_form_action') !!}
             <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>
             @include('partials.modal-script')
         </form>

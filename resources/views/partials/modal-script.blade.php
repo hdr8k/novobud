@@ -6,3 +6,4 @@
 <script>
     ct.init('1af0894b912371214d1c235b5cfabad9', 'https://ct.streamtele.com/');
 </script>
+{!!  GoogleReCaptchaV3::renderField('user_form_id','user_form_action') !!}
