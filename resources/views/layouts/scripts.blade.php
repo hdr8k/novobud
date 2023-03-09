@@ -20,7 +20,7 @@
             initialCountry: "auto",
             geoIpLookup: function (success, failure) {
                 @if(env('APP_ENV') !== 'local')
-                $.ajax({
+                jQuery.ajax({
                     url: 'https://ipinfo.io/json',
                     dataType: 'json',
                     data: {
