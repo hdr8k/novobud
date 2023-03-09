@@ -20,11 +20,15 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MJTJMX7Z9"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-8MJTJMX7Z9');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-8MJTJMX7Z9');
     </script>
 
 {{--    <title>О проекте - компания Новобудови Полтави / Новобудови Полтави</title>--}}
@@ -88,7 +92,7 @@
           media="all">
     <link rel="stylesheet" id="contact-form-css" href="{{asset('css/contact_form.css')}}" type="text/css"
           media="all">
-    <link rel="stylesheet" id="custom-css" href="{{asset('css/custom.css')}}" type="text/css" media="all">
+    {{--    <link rel="stylesheet" id="custom-css" href="{{asset('css/custom.css')}}" type="text/css" media="all">--}}
     <link rel="stylesheet" id="menu-top-css" href="{{asset('css/menu-top.css')}}" type="text/css" media="all">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css" media="all">
@@ -96,6 +100,7 @@
     <link rel="stylesheet" id="main-page-portfolio" href="{{asset('css/main-page-portfolio.css')}}"
           type="text/css" media="all">
 
+    <link rel="stylesheet" id="footer" href="{{asset('css/intlTelInput.css')}}" type="text/css" media="all">
     <link rel="stylesheet" id="footer" href="{{asset('css/footer.css')}}" type="text/css" media="all">
 
     <link rel="stylesheet" id="oneproduct" href="{{asset('css/oneproduct.css')}}" type="text/css" media="all">
@@ -111,6 +116,8 @@
 
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput-jquery.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-209042445-1"></script>
@@ -176,9 +183,9 @@
                     <div class="menu-top__logo">
                         <a href="{{localUrl('')}}">
                             <img
-{{--                                @if(checkCurrentUrl('/') !== 'current')--}}
-{{--                                style="filter: grayscale(1);"--}}
-{{--                                @endif--}}
+                                {{--                                @if(checkCurrentUrl('/') !== 'current')--}}
+                                {{--                                style="filter: grayscale(1);"--}}
+                                {{--                                @endif--}}
                                 src="{{asset('img/menu/menu-top-logo.png')}}">
                         </a>
                     </div>
@@ -354,87 +361,6 @@
 
 </div>
 
-
-{{--Skripst--}}
-@include('layouts.scripts')
-
-@include('layouts.modals')
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const userForms = document.querySelectorAll('form.user-form')
-        for (let form of userForms) {
-            form.addEventListener('submit', function (e) {
-                    e.preventDefault()
-                    const action = form.action
-                    const method = form.method.toUpperCase()
-                    const formValues = jQuery(e.target).serialize()
-                    jQuery.ajax({
-                        type: method,
-                        url: action,
-                        data: formValues,
-                        success: function () {
-                            form.reset()
-                            closeAllModals()
-                            showModalById('feedback-success')
-                            setTimeout(() => {
-                                closeModalById('feedback-success')
-                            }, 5000)
-                        },
-                        error: function (err) {
-                            const {statusText} = err
-                            if (statusText) {
-                                alert(statusText)
-                            } else {
-                                alert('Error')
-                            }
-                        }
-                    })
-                }
-            )
-        }
-
-        const modalCallsButtons = document.querySelectorAll('[data-open-modal]')
-        const modalCloseButtons = document.querySelectorAll('[data-close-modal]')
-
-        const showModalById = (id) => {
-            const modal = document.querySelector('#' + id)
-            if (modal)
-                modal.classList.add('active')
-        }
-
-        const closeModalById = (id) => {
-            const modal = document.querySelector('#' + id)
-            if (modal)
-                modal.classList.remove('active')
-        }
-        const closeAllModals = () => {
-            const modals = document.querySelectorAll('.ui-modal')
-            for (let modal of modals) {
-                modal.classList.remove('active')
-            }
-        }
-
-        for (let callBtn of modalCallsButtons) {
-            callBtn.addEventListener('click', function (e) {
-                e.preventDefault()
-                const modalId = callBtn.dataset.openModal
-                showModalById(modalId)
-            })
-        }
-
-        for (let closeBtn of modalCloseButtons) {
-            closeBtn.addEventListener('click', function (e) {
-                const modalId = closeBtn.dataset.closeModal
-                closeModalById(modalId)
-            })
-        }
-
-    })
-</script>
-
-{!!  GoogleReCaptchaV3::init() !!}
-
 <div class="yButton bottom right" id="social-fixed-button" href="#" style="z-index: 10000;">
 
     <div class="absolute-social-links">
@@ -466,6 +392,93 @@
 
 
 </div>
+
+
+{{--Skripst--}}
+@include('layouts.scripts')
+
+@include('layouts.modals')
+
+<script>
+    function submit(form) {
+        const action = form.action
+        const method = form.method.toUpperCase()
+        const formValues = jQuery(form).serialize();
+        if (jQuery(form.querySelector('input[name="phone"]')).intlTelInput("isValidNumber")) {
+            jQuery.ajax({
+                type: method,
+                url: action,
+                data: formValues,
+                success: function () {
+                    form.reset()
+                    closeAllModals()
+                    showModalById('feedback-success')
+                    setTimeout(() => {
+                        closeModalById('feedback-success')
+                    }, 5000)
+                },
+                error: function (err) {
+                    const {statusText} = err
+                    if (statusText) {
+                        alert(statusText)
+                    } else {
+                        alert('Error')
+                    }
+                }
+            })
+        }
+    }
+
+    const userForms = document.querySelectorAll('form.user-form');
+    for (let form of userForms) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+    }
+
+    const modalCallsButtons = document.querySelectorAll('[data-open-modal]')
+    const modalCloseButtons = document.querySelectorAll('[data-close-modal]')
+
+    const showModalById = (id) => {
+        const modal = document.querySelector('#' + id)
+        if (modal)
+            modal.classList.add('active')
+    }
+
+    const closeModalById = (id) => {
+        const modal = document.querySelector('#' + id)
+        if (modal)
+            modal.classList.remove('active')
+    }
+    const closeAllModals = () => {
+        const modals = document.querySelectorAll('.ui-modal')
+        for (let modal of modals) {
+            modal.classList.remove('active')
+        }
+    }
+
+    for (let callBtn of modalCallsButtons) {
+        callBtn.addEventListener('click', function (e) {
+            e.preventDefault()
+            const modalId = callBtn.dataset.openModal
+            showModalById(modalId)
+        })
+    }
+
+    for (let closeBtn of modalCloseButtons) {
+        closeBtn.addEventListener('click', function (e) {
+            const modalId = closeBtn.dataset.closeModal
+            closeModalById(modalId)
+        })
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+
+    })
+</script>
+
+{{--{!!  GoogleReCaptchaV3::init() !!}--}}
 
 <style>
     #social-fixed-button {
@@ -511,6 +524,7 @@
 
     .round-link:not(:last-child) {
     }
+
 </style>
 
 <script>

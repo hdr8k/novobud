@@ -9,19 +9,63 @@
 <script src="{{asset('js/mfp.js')}}"></script>
 
 <script>
+
+    jQuery(function () {
+        var inputPhone = jQuery('input[name=\'phone\']');
+        inputPhone.intlTelInput({
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+            nationalMode: false,
+            autoHideDialCode: false,
+            autoPlaceholder: "aggressive",
+            initialCountry: "auto",
+            geoIpLookup: function (success, failure) {
+                @if(env('APP_ENV') !== 'local')
+                $.ajax({
+                    url: 'https://ipinfo.io/json',
+                    dataType: 'json',
+                    data: {
+                        token: '{{env('IPINFO_TOKEN')}}'
+                    },
+                    success: function (data) {
+                        var countryCode = data.country || 'ua';
+                        success(countryCode);
+                    },
+                    error: function () {
+                        failure('ua');
+                    }
+                });
+                @else
+                success('ua')
+                @endif
+            },
+            customContainer: 'w-100',
+            validation: true
+        });
+
+        inputPhone.on("input", function () {
+            var phoneInput = jQuery(this);
+            var isValid = phoneInput.intlTelInput("isValidNumber");
+            var error = phoneInput.intlTelInput("getValidationError");
+            if (isValid) {
+                phoneInput.removeClass("error");
+            } else {
+                phoneInput.addClass("error");
+            }
+        });
+    })
     jQuery(document).ready(function ($) {
-        function getCookie (name) {
+        function getCookie(name) {
             var matches = document.cookie.match(new RegExp(
                 '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
             ))
             return matches ? decodeURIComponent(matches[1]) : undefined
         }
 
-        $('input[name=\'phone\']').inputmask('+38 (099) 999-99-99', {
-            'onincomplete': function () {
-                $(this).val('')
-            }
-        })
+        // $('input[name=\'phone\']').inputmask('+38 (099) 999-99-99', {
+        //     'onincomplete': function () {
+        //         $(this).val('')
+        //     }
+        // })
         $(document).on('click', function (e) {
             if (!$(e.target).closest('.modal-wrap').length && !$(e.target).closest('.yButton').length) {
                 if ($('.modal-window').hasClass('active')) {
@@ -53,7 +97,7 @@
 <script>
     window.dataLayer = window.dataLayer || []
 
-    function gtag () {
+    function gtag() {
         dataLayer.push(arguments)
     }
 

@@ -5,8 +5,8 @@
             <div class="modal-title">Не нашли то, что искали?<span>Наши специалисты подберут для вас необходимый вариант, БЕСПЛАТНО!</span>
             </div>
             <div class="modal-content">
-                <form class="form-send" method="POST">
-                    <input type="text" name="phone" required="required" placeholder="Ваш номер телефона">
+                <form class="form-send" method="POST" data-form="recallForm1">
+                    <input type="text" id="#phone" name="phone" required="required" placeholder="Ваш номер телефона">
                     <input type="submit" value="Перезвонить">
                     <input type="hidden" name="subject" value="Не нашли то, что искали?">
                     <input type="hidden" name="from" value="novobud.pl.ua">
@@ -21,16 +21,18 @@
 
 <div class="ui-modal" id="feedback">
     <div class="ui-modal__content">
-        <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
-            <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
-                (function (w, d, u) {
-                    var s = d.createElement('script');
-                    s.async = true;
-                    s.src = u + '?' + (Date.now() / 180000 | 0);
-                    var h = d.getElementsByTagName('script')[0];
-                    h.parentNode.insertBefore(s, h);
-                })(window, document, 'https://cdn.bitrix24.ua/b7708799/crm/form/loader_46.js');
-            </script>
+        <form action="{{route('form.feedbackForm')}}" data-form="feedback" class="user-form" method="POST">
+            @if(env('APP_ENV') !== 'local')
+                <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
+                    (function (w, d, u) {
+                        var s = d.createElement('script');
+                        s.async = true;
+                        s.src = u + '?' + (Date.now() / 180000 | 0);
+                        var h = d.getElementsByTagName('script')[0];
+                        h.parentNode.insertBefore(s, h);
+                    })(window, document, 'https://cdn.bitrix24.ua/b7708799/crm/form/loader_46.js');
+                </script>
+            @endif
 
             <h4 class="user-form__title">
                 {{__('feedback.title')}}
@@ -51,7 +53,16 @@
             </div>
 
             <input type="hidden" name="url" value="{!! url()->current() !!}">
-            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
+            <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+                    data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+                    data-callback="onSubmitFeedback"
+                    type="submit">{{__('feedback.submit')}}</button>
+            <script>
+                function onSubmitFeedback() {
+                    submit(document.querySelector('[data-form="feedback"]'));
+                }
+            </script>
+            {{--            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>--}}
             @include('partials.modal-script')
         </form>
 
@@ -63,18 +74,20 @@
 
 <div class="ui-modal" id="feedback-flat">
     <div class="ui-modal__content">
-        <form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
+        <form action="{{route('form.feedbackForm')}}" data-form="feedback-flat" id="user-form" class="user-form"
+              method="POST">
+            @if(env('APP_ENV') !== 'local')
 
-            <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
-                (function (w, d, u) {
-                    var s = d.createElement('script');
-                    s.async = true;
-                    s.src = u + '?' + (Date.now() / 180000 | 0);
-                    var h = d.getElementsByTagName('script')[0];
-                    h.parentNode.insertBefore(s, h);
-                })(window, document, 'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
-            </script>
-
+                <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
+                    (function (w, d, u) {
+                        var s = d.createElement('script');
+                        s.async = true;
+                        s.src = u + '?' + (Date.now() / 180000 | 0);
+                        var h = d.getElementsByTagName('script')[0];
+                        h.parentNode.insertBefore(s, h);
+                    })(window, document, 'https://cdn.bitrix24.ua/b7708799/crm/form/loader_48.js');
+                </script>
+            @endif
             <h4 class="user-form__title">
                 {{__('houses/house.title_form')}}
             </h4>
@@ -86,8 +99,8 @@
             </div>
 
             <div class="user-form__field">
-                <input class="user-form__input" type="tel" name="phone" placeholder="{{__('feedback.phone')}}"
-                       required="">
+                <input class="user-form__input" type="tel" name="phone"
+                       required="" id="phone1">
             </div>
 
             <input type="hidden" name="url" value="{!! url()->current() !!}">
@@ -95,7 +108,18 @@
             <div class="user-form__field">
                 <textarea name="text" class="user-form__textarea" placeholder="{{__('feedback.messages')}}"></textarea>
             </div>
-            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
+            {{--            <button class="uibtn uibtn-primary user-form__submit"--}}
+            {{--                    onclick="onSubmitFeedbackFlat()"--}}
+            {{--                    type="submit">{{__('feedback.submit')}}</button>--}}
+            <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+                    data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+                    data-callback="onSubmitFeedbackFlat"
+                    type="submit">{{__('feedback.submit')}}</button>
+            <script>
+                function onSubmitFeedbackFlat() {
+                    submit(document.querySelector('[data-form="feedback-flat"]'));
+                }
+            </script>
             @include('partials.modal-script')
         </form>
 
@@ -105,9 +129,10 @@
     </div>
 </div>
 
+
 <div class="ui-modal" id="feedback-phone">
     <div class="ui-modal__content">
-        <form action="{{route('form.recallForm')}}" class="user-form" method="POST">
+        <form action="{{route('form.recallForm')}}" data-form="feedback-phone" class="user-form" method="POST">
             <h4 class="user-form__title">
                 {{__('recall.title')}}
             </h4>
@@ -116,7 +141,16 @@
                 <input class="user-form__input" type="tel" name="phone" placeholder="{{__('recall.phone')}}"
                        required="">
             </div>
-            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>
+            <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+                    data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+                    data-callback="onSubmitFeedbackPhone"
+                    type="submit">{{__('feedback.submit')}}</button>
+            <script>
+                function onSubmitFeedbackPhone() {
+                    submit(document.querySelector('[data-form="feedback-phone"]'));
+                }
+            </script>
+            {{--            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>--}}
             @include('partials.modal-script')
         </form>
 
