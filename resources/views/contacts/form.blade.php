@@ -1,4 +1,4 @@
-<form action="{{route('form.feedbackForm')}}" class="user-form" method="POST">
+<form action="{{route('form.feedbackForm')}}" data-form="contact-feedback" class="user-form" method="POST">
 
     {{--    <script data-b24-form="inline/44/x0c32o" data-skip-moving="true">--}}
     {{--      (function(w,d,u){--}}
@@ -28,5 +28,15 @@
 
     <input type="hidden" name="url" value="{!! url()->current() !!}">
 
-    <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('contacts.forms.submit')}}</button>
+    {{--    <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('contacts.forms.submit')}}</button>--}}
+
+    <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+            data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+            data-callback="onSubmitContactFeedback"
+            type="submit">{{__('contacts.forms.submit')}}</button>
+    <script>
+        function onSubmitContactFeedback() {
+            submit(document.querySelector('[data-form="feedback-phone"]'));
+        }
+    </script>
 </form>
