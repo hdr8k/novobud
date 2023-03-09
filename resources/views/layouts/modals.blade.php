@@ -22,6 +22,7 @@
 <div class="ui-modal" id="feedback">
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" data-form="feedback" class="user-form" method="POST">
+            @csrf
             @if(env('APP_ENV') !== 'local')
                 <script data-b24-form="click/46/5f0i05" data-skip-moving="true">
                     (function (w, d, u) {
@@ -76,6 +77,7 @@
     <div class="ui-modal__content">
         <form action="{{route('form.feedbackForm')}}" data-form="feedback-flat" id="user-form" class="user-form"
               method="POST">
+            @csrf
             @if(env('APP_ENV') !== 'local')
 
                 <script data-b24-form="click/48/5g0i89" data-skip-moving="true">
@@ -133,6 +135,7 @@
 <div class="ui-modal" id="feedback-phone">
     <div class="ui-modal__content">
         <form action="{{route('form.recallForm')}}" data-form="feedback-phone" class="user-form" method="POST">
+            @csrf
             <h4 class="user-form__title">
                 {{__('recall.title')}}
             </h4>
