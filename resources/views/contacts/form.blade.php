@@ -36,7 +36,7 @@
             type="submit">{{__('contacts.forms.submit')}}</button>
     <script>
         function onSubmitContactFeedback() {
-            submit(document.querySelector('[data-form="feedback-phone"]'));
+            submit(document.querySelector('[data-form="contact-feedback"]'));
         }
     </script>
 </form>
