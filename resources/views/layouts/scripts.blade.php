@@ -31,7 +31,7 @@
                         success(countryCode);
                     },
                     error: function () {
-                        failure('ua');
+                        success('ua')
                     }
                 });
                 @else
