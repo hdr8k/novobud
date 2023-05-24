@@ -55,7 +55,6 @@
 
             <input type="hidden" name="url" value="{!! url()->current() !!}">
             @if(env('RECAPTCHA_V3_SITE_KEY'))
-                {{dd('test')}}
                 <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
                         data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
                         data-callback="onSubmitFeedback"
