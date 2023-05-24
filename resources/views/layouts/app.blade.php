@@ -57,7 +57,10 @@
     <meta name="google-site-verification" content="Zl__NcL-k2WXP7sAZnib71Au8oylgK_BOIRYuDanQ00">
     <meta name="yandex-verification" content="5753308231dc2ba3">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
@@ -104,6 +107,7 @@
     <link rel="stylesheet" id="modal-css" href="{{asset('css/magnific-popup.css')}}" type="text/css" media="all">
 
     <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 
 </head>

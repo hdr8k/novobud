@@ -12,7 +12,6 @@
 <script async src="https://connect.facebook.net/signals/config/281704405839432?v=2.9.28&amp;r=stable"></script>
 <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
 <script async type="text/javascript" src="https://mc.yandex.ru/metrika/watch.js"></script>
-<script async src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput-jquery.js"></script>
