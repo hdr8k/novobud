@@ -54,16 +54,20 @@
             </div>
 
             <input type="hidden" name="url" value="{!! url()->current() !!}">
-            <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
-                    data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
-                    data-callback="onSubmitFeedback"
-                    type="submit">{{__('feedback.submit')}}</button>
-            <script>
-                function onSubmitFeedback() {
-                    submit(document.querySelector('[data-form="feedback"]'));
-                }
-            </script>
-            {{--            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>--}}
+            @if(env('RECAPTCHA_V3_SITE_KEY'))
+                {{dd('test')}}
+                <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+                        data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+                        data-callback="onSubmitFeedback"
+                        type="submit">{{__('feedback.submit')}}</button>
+                <script>
+                    function onSubmitFeedback() {
+                        submit(document.querySelector('[data-form="feedback"]'));
+                    }
+                </script>
+            @else
+                <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('feedback.submit')}}</button>
+            @endif
             @include('partials.modal-script')
         </form>
 
@@ -110,18 +114,23 @@
             <div class="user-form__field">
                 <textarea name="text" class="user-form__textarea" placeholder="{{__('feedback.messages')}}"></textarea>
             </div>
-            {{--            <button class="uibtn uibtn-primary user-form__submit"--}}
-            {{--                    onclick="onSubmitFeedbackFlat()"--}}
-            {{--                    type="submit">{{__('feedback.submit')}}</button>--}}
-            <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
-                    data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
-                    data-callback="onSubmitFeedbackFlat"
-                    type="submit">{{__('feedback.submit')}}</button>
-            <script>
-                function onSubmitFeedbackFlat() {
-                    submit(document.querySelector('[data-form="feedback-flat"]'));
-                }
-            </script>
+
+            @if(env('RECAPTCHA_V3_SITE_KEY'))
+                <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+                        data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+                        data-callback="onSubmitFeedbackFlat"
+                        type="submit">{{__('feedback.submit')}}</button>
+                <script>
+                    function onSubmitFeedbackFlat() {
+                        submit(document.querySelector('[data-form="feedback-flat"]'));
+                    }
+                </script>
+
+            @else
+                <button class="uibtn uibtn-primary user-form__submit"
+                        type="submit">{{__('feedback.submit')}}</button>
+            @endif
+
             @include('partials.modal-script')
         </form>
 
@@ -144,16 +153,19 @@
                 <input class="user-form__input" type="tel" name="phone" placeholder="{{__('recall.phone')}}"
                        required="">
             </div>
-            <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
-                    data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
-                    data-callback="onSubmitFeedbackPhone"
-                    type="submit">{{__('feedback.submit')}}</button>
-            <script>
-                function onSubmitFeedbackPhone() {
-                    submit(document.querySelector('[data-form="feedback-phone"]'));
-                }
-            </script>
-            {{--            <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>--}}
+            @if(env('RECAPTCHA_V3_SITE_KEY'))
+                <button class="uibtn uibtn-primary user-form__submit g-recaptcha"
+                        data-sitekey="{{env('RECAPTCHA_V3_SITE_KEY')}}"
+                        data-callback="onSubmitFeedbackPhone"
+                        type="submit">{{__('feedback.submit')}}</button>
+                <script>
+                    function onSubmitFeedbackPhone() {
+                        submit(document.querySelector('[data-form="feedback-phone"]'));
+                    }
+                </script>
+            @else
+                <button class="uibtn uibtn-primary user-form__submit" type="submit">{{__('recall.submit')}}</button>
+            @endif
             @include('partials.modal-script')
         </form>
 
