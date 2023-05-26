@@ -43,7 +43,7 @@ final class FeedbackRequest extends FormRequest
     public function getDto(): FeedbackDto
     {
         return new FeedbackDto(
-            $this->get('name_t'),
+            'Feedback',
             $this->get('phone'),
             $this->get('text'),
             $this->get('url')
