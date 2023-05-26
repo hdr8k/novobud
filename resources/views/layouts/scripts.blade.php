@@ -92,19 +92,19 @@
                 @endif
             },
             customContainer: 'w-100',
-            validation: true
+            validation: false
         });
 
-        inputPhone.on("input", function () {
-            var phoneInput = jQuery(this);
-            var isValid = phoneInput.intlTelInput("isValidNumber");
-            var error = phoneInput.intlTelInput("getValidationError");
-            if (isValid) {
-                phoneInput.removeClass("error");
-            } else {
-                phoneInput.addClass("error");
-            }
-        });
+        // inputPhone.on("input", function () {
+        //     var phoneInput = jQuery(this);
+        //     var isValid = phoneInput.intlTelInput("isValidNumber");
+        //     var error = phoneInput.intlTelInput("getValidationError");
+        //     if (isValid) {
+        //         phoneInput.removeClass("error");
+        //     } else {
+        //         phoneInput.addClass("error");
+        //     }
+        // });
     })
     jQuery(document).ready(function ($) {
         function getCookie(name) {
