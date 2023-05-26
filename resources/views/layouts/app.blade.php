@@ -31,8 +31,8 @@
         gtag('config', 'G-8MJTJMX7Z9');
     </script>
 
-{{--    <title>О проекте - компания Новобудови Полтави / Новобудови Полтави</title>--}}
-<!-- CSRF Token -->
+    {{--    <title>О проекте - компания Новобудови Полтави / Новобудови Полтави</title>--}}
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -349,7 +349,8 @@
         const action = form.action
         const method = form.method.toUpperCase()
         const formValues = jQuery(form).serialize();
-        if (jQuery(form.querySelector('input[name="phone"]')).intlTelInput("isValidNumber")) {
+        // if (jQuery(form.querySelector('input[name="phone"]')).intlTelInput("isValidNumber")) {
+        if (jQuery(form.querySelector('input[name="phone"]'))) {
             jQuery.ajax({
                 type: method,
                 url: action,
