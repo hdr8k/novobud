@@ -30,7 +30,7 @@ final class FeedbackRequest extends FormRequest
     {
         return [
             'name'  => 'nullable|string',
-            'name_t'  => 'required|string',
+//            'name_t'  => 'required|string',
             'phone' => 'required|string',
             'text'  => 'nullable|string',
             'url'   => 'required|string|url',

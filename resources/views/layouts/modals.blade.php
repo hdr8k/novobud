@@ -39,10 +39,10 @@
                 {{__('feedback.title')}}
             </h4>
             <input type="text" name="name" value="" style="position: absolute; left: -9999px; display: none;">
-            <div class="user-form__field">
-                <input class="user-form__input" type="text" name="name_t" placeholder="{{__('feedback.name')}}"
-                       required="">
-            </div>
+{{--            <div class="user-form__field">--}}
+{{--                <input class="user-form__input" type="text" name="name_t" placeholder="{{__('feedback.name')}}"--}}
+{{--                       required="">--}}
+{{--            </div>--}}
 
             <div class="user-form__field">
                 <input class="user-form__input" type="tel" name="phone" placeholder="{{__('feedback.phone')}}"
@@ -98,10 +98,10 @@
             </h4>
 
             <input type="text" name="name" value="" style="position: absolute; left: -9999px; display: none;">
-            <div class="user-form__field">
-                <input class="user-form__input" type="text" name="name_t" placeholder="{{__('feedback.name')}}"
-                       required="">
-            </div>
+{{--            <div class="user-form__field">--}}
+{{--                <input class="user-form__input" type="text" name="name_t" placeholder="{{__('feedback.name')}}"--}}
+{{--                       required="">--}}
+{{--            </div>--}}
 
             <div class="user-form__field">
                 <input class="user-form__input" type="tel" name="phone"
