@@ -97,7 +97,7 @@ class EloquentHouseQueries implements HouseQueries
             'housings',
             'housings.layouts',
             'housings.layouts.layoutCoordinates'
-        )->get();
+        ) ->orderByDesc('priority')->get();
 
         return $houses;
     }
